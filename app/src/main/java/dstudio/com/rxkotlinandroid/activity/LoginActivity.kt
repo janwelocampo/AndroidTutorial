@@ -10,25 +10,21 @@ import android.widget.Toast
 import dstudio.com.rxkotlinandroid.R
 import dstudio.com.rxkotlinandroid.util.RXKotlinAndroidUtils
 import dstudio.com.rxkotlinandroid.util.RXKotlinAndroidUtils.Constant.Companion.MSN_LOGIN_ACCEPTANCE
+import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : BaseActivity(), View.OnClickListener {
 
-    private var editTextMSN: EditText? = null
-    private var buttonLogin: Button? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-
-        editTextMSN = findViewById(R.id.edit_msn) as EditText
-        buttonLogin = findViewById(R.id.button_login) as Button
-
-        buttonLogin!!.setOnClickListener(this)
+        
+        button_login!!.setOnClickListener(this)
     }
 
     override fun onClick(v: View) {
         when (v.id) {
-            R.id.button_login -> if (isValidInput(editTextMSN!!.text.toString())) {
+            R.id.button_login -> if (isValidInput(edit_msn!!.text.toString())) {
                 startActivity(Intent(this@LoginActivity, SplashActivity::class.java))
                 finish()
             }
