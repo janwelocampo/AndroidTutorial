@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@android:color/black"
+        android:text="Subscription Info:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold"
+            android:text="Subs Remaining Bal:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:gravity="center"
+            android:id="@+id/textview_remaining_balance"
+            android:textSize="@dimen/large_text_size"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:text="100" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="MSN :" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_msn"
+            android:gravity="center"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="12145" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Credit Expiry:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_credit_expiry"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:text="12578" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Auto Renewal:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_auto_renewal"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:gravity="center"
+            android:text="TRUE" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@android:color/black"
+        android:text="Subscription Product Info:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Product Name:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_product_name"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="name" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Price" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_price"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/holo_red_dark"
+            android:text="12570" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@android:color/black"
+        android:text="Subscription Product Inclusion:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Unlimited Text:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_unli_text"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Unlimited Talk:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_unli_talk"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="true" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Unlimited Inter Text:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_unli_inter_text"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="false" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="Unlimited Inter Talk:" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_unli_inter_talk"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="false" />
+    </LinearLayout>
+
+
+
+</LinearLayout>

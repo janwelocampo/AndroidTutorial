@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/large_text_size"
+        android:textColor="@android:color/black"
+        android:text="@string/account_label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:weightSum="1"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/name_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_name"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="@string/name_label" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/birthday_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_birthday"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="@string/name_label" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/contact_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_contact"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="@string/name_label" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/email_label" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_email"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/black"
+            android:text="@string/name_label" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_min_margin"
+        android:weightSum="1">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".4"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/darker_gray"
+            android:text="@string/email_verified" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:id="@+id/textview_email_verified"
+            android:textSize="@dimen/med_text_size"
+            android:textColor="@android:color/holo_red_dark"
+            android:text="@string/name_label" />
+    </LinearLayout>
+
+
+</LinearLayout>
