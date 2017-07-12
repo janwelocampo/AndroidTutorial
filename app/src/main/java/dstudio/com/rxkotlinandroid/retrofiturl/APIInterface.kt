@@ -10,6 +10,6 @@ import rx.Observable
 
 interface APIInterface {
 
-    @GET("/amaysim-au/engineering-test-resources/master/collection.json")
+    @GET("/janwelocampo/AndroidTutorial/master/collection.json")
     fun doGetUserData(): Observable<UserData>
 }
