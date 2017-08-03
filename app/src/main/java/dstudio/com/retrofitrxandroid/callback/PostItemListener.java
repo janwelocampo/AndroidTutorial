@@ -5,5 +5,5 @@ package dstudio.com.retrofitrxandroid.callback;
  */
 
 public interface PostItemListener {
-    void onPostClick(String id);
+    void onPostClick(int id);
 }

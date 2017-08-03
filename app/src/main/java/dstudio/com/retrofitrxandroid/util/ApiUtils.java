@@ -13,4 +13,9 @@ public class ApiUtils {
     public static APIInterface getSOService() {
         return RetrofitClient.getClient(BASE_URL).create(APIInterface.class);
     }
+
+    public static String SAVE_INSTANCE_COLORS = "save_instance_colors";
+
+    //Fragment call
+    public static String FRAGMENT_COLORS = "fragment_color";
 }

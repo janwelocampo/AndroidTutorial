@@ -1,13 +1,8 @@
 package dstudio.com.retrofitrxandroid.apiurl;
 
 
-import dstudio.com.retrofitrxandroid.model.userdataresponse.UserData;
-import retrofit2.http.Body;
-import retrofit2.http.Field;
-import retrofit2.http.FormUrlEncoded;
+import dstudio.com.retrofitrxandroid.model.colorresponse.Colors;
 import retrofit2.http.GET;
-import retrofit2.http.POST;
-import retrofit2.http.Query;
 import rx.Observable;
 
 /**
@@ -15,8 +10,8 @@ import rx.Observable;
  */
 
 public interface APIInterface {
-    @GET("/janwelocampo/AndroidTutorial/master/collection.json")
-    Observable<UserData> doGetUserData();
+    @GET("/janwelocampo/AndroidTutorial/master/colors.json")
+    Observable<Colors> doGetColors();
 
 
 }

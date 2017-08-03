@@ -12,27 +12,27 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import dstudio.com.retrofitrxandroid.callback.PostItemListener;
-import dstudio.com.retrofitrxandroid.model.userdataresponse.UserData;
+import dstudio.com.retrofitrxandroid.model.colorresponse.Color_;
 
 /**
  * Created by janwelcris on 6/8/2017.
  */
 
-public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHolder> {
+public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ViewHolder> {
 
-    private List<UserData> mItems;
+    private List<Color_> mItems;
     private Context mContext;
     private PostItemListener mItemListener;
 
 
-    public AnswersAdapter(Context context, List<UserData> posts, PostItemListener itemListener) {
+    public ColorsAdapter(Context context, List<Color_> posts, PostItemListener itemListener) {
         mItems = posts;
         mContext = context;
         mItemListener = itemListener;
     }
 
     @Override
-    public AnswersAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ColorsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
 
@@ -43,24 +43,15 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(AnswersAdapter.ViewHolder holder, int position) {
-        UserData userData = mItems.get(position);
+    public void onBindViewHolder(ColorsAdapter.ViewHolder holder, int position) {
+        Color_ colors = mItems.get(position);
         TextView textView = holder.titleTv;
-        textView.setText(userData.getData().getAttributes().getFirstName());
+        textView.setText(colors.getColor());
     }
 
     @Override
     public int getItemCount() {
         return mItems.size();
-    }
-
-    public void updateAnswers(List<UserData> items) {
-        mItems = items;
-        notifyDataSetChanged();
-    }
-
-    private UserData getItem(int adapterPosition) {
-        return mItems.get(adapterPosition);
     }
 
 
@@ -82,8 +73,7 @@ public class AnswersAdapter extends RecyclerView.Adapter<AnswersAdapter.ViewHold
 
         @Override
         public void onClick(View view) {
-            UserData userData = getItem(getAdapterPosition());
-            this.mItemListener.onPostClick(userData.getData().getId());
+            this.mItemListener.onPostClick(getAdapterPosition());
             notifyDataSetChanged();
         }
     }
