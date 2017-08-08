@@ -1,16 +1,23 @@
 package dstudio.com.retrofitrxandroid.adapter;
 
 import android.content.Context;
+import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import dstudio.com.retrofitrxandroid.R;
 import dstudio.com.retrofitrxandroid.callback.PostItemListener;
 import dstudio.com.retrofitrxandroid.model.colorresponse.Color_;
 
@@ -18,63 +25,39 @@ import dstudio.com.retrofitrxandroid.model.colorresponse.Color_;
  * Created by janwelcris on 6/8/2017.
  */
 
-public class ColorsAdapter extends RecyclerView.Adapter<ColorsAdapter.ViewHolder> {
+public class ColorsAdapter extends ArrayAdapter<Color_> {
 
-    private List<Color_> mItems;
-    private Context mContext;
-    private PostItemListener mItemListener;
-
-
-    public ColorsAdapter(Context context, List<Color_> posts, PostItemListener itemListener) {
-        mItems = posts;
-        mContext = context;
-        mItemListener = itemListener;
+    public ColorsAdapter(List<Color_> data, Context context) {
+        super(context, R.layout.row_item, data);
     }
 
+    @NonNull
     @Override
-    public ColorsAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        View postView = inflater.inflate(android.R.layout.simple_list_item_1, parent, false);
-
-        ViewHolder viewHolder = new ViewHolder(postView, this.mItemListener);
-        return viewHolder;
-    }
-
-    @Override
-    public void onBindViewHolder(ColorsAdapter.ViewHolder holder, int position) {
-        Color_ colors = mItems.get(position);
-        TextView textView = holder.titleTv;
-        textView.setText(colors.getColor());
-    }
-
-    @Override
-    public int getItemCount() {
-        return mItems.size();
-    }
-
-
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-
-        @BindView(android.R.id.text1)
-        TextView titleTv;
-
-        PostItemListener mItemListener;
-
-        public ViewHolder(View itemView, PostItemListener postItemListener) {
-            super(itemView);
-
-            ButterKnife.bind(this, itemView);
-
-            this.mItemListener = postItemListener;
-            itemView.setOnClickListener(this);
+    public View getView(int position, @Nullable View view, @NonNull ViewGroup parent) {
+        ViewHolder holder;
+        Color_ color_ = getItem(position);
+        if (view != null) {
+            holder = (ViewHolder) view.getTag();
+        } else {
+            view = LayoutInflater.from(getContext()).inflate(R.layout.row_item, parent, false);
+            holder = new ViewHolder(view);
+            view.setTag(holder);
         }
 
-        @Override
-        public void onClick(View view) {
-            this.mItemListener.onPostClick(getAdapterPosition());
-            notifyDataSetChanged();
+        holder.data.setText(color_.getColor());
+
+
+        return view;
+
+    }
+
+    static class ViewHolder {
+        @BindView(R.id.textView)
+        TextView data;
+
+
+        public ViewHolder(View view) {
+            ButterKnife.bind(this, view);
         }
     }
 }

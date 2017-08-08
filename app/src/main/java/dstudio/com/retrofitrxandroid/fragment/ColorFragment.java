@@ -6,7 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,14 +29,14 @@ import eu.inloop.viewmodel.base.ViewModelBaseFragment;
  * Created by janwelcris on 8/3/2017.
  */
 
-public class ColorFragment extends ViewModelBaseFragment<IUColorView, ColorsViewModel> implements IUColorView, PostItemListener {
+public class ColorFragment extends ViewModelBaseFragment<IUColorView, ColorsViewModel> implements IUColorView, AdapterView.OnItemClickListener{
 
     private ColorsAdapter mAdapter;
 
     private List<Color_> colorList;
 
     @BindView(R.id.rv_colors)
-    RecyclerView recyclerView;
+    ListView recyclerView;
 
     @BindView(R.id.progress)
     LinearLayout linearProgress;
@@ -53,14 +55,14 @@ public class ColorFragment extends ViewModelBaseFragment<IUColorView, ColorsView
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        colorList = new ArrayList<>();
         setModelView(this);
+        recyclerView.setOnItemClickListener(this);
     }
 
     @Override
     public void getColorsData(Colors colors) {
         colorList = colors.getColors();
-        mAdapter = new ColorsAdapter(getActivity(), colorList, this);
+        mAdapter = new ColorsAdapter(colorList,getActivity());
         recyclerView.setAdapter(mAdapter);
     }
 
@@ -74,8 +76,9 @@ public class ColorFragment extends ViewModelBaseFragment<IUColorView, ColorsView
         linearProgress.setVisibility(View.GONE);
     }
 
+
     @Override
-    public void onPostClick(int id) {
-        Toast.makeText(getActivity(), ""+ getViewModel().getHexaCode(id), Toast.LENGTH_SHORT).show();
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Toast.makeText(getActivity(), ""+getViewModel().getHexaCode(position), Toast.LENGTH_LONG).show();
     }
 }

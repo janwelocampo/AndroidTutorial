@@ -95,6 +95,7 @@ public class ColorsViewModel extends AbstractViewModel<IUColorView>   {
                     @Override
                     public void onNext(Colors colors) {
                         SharedPref.setString(ApiUtils.getSharedKey.COLORS, mGson.toJson(mColors));
+                        mColors = colors;
                         view.getColorsData(colors);
                     }
                 });
