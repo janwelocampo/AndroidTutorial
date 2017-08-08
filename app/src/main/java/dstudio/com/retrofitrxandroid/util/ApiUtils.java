@@ -18,4 +18,8 @@ public class ApiUtils {
 
     //Fragment call
     public static String FRAGMENT_COLORS = "fragment_color";
+
+    public interface getSharedKey{
+        String COLORS = "colors";
+    }
 }

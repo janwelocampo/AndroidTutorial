@@ -5,6 +5,7 @@ import android.os.Bundle;
 import dstudio.com.retrofitrxandroid.fragment.ColorFragment;
 import dstudio.com.retrofitrxandroid.R;
 import dstudio.com.retrofitrxandroid.util.ApiUtils;
+import dstudio.com.retrofitrxandroid.util.SharedPref;
 import eu.inloop.viewmodel.base.ViewModelBaseEmptyActivity;
 
 /**
@@ -17,6 +18,8 @@ public class MainActivity  extends ViewModelBaseEmptyActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPref.init(getApplicationContext());
 
         if (savedInstanceState == null) {
             getSupportFragmentManager()

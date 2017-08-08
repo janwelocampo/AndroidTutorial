@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 
 import dstudio.com.retrofitrxandroid.model.colorresponse.Colors;
 import dstudio.com.retrofitrxandroid.util.ApiUtils;
+import dstudio.com.retrofitrxandroid.util.SharedPref;
 import dstudio.com.retrofitrxandroid.viewmodel.view.IUColorView;
 import eu.inloop.viewmodel.AbstractViewModel;
 import rx.Subscriber;
@@ -20,7 +21,7 @@ import rx.schedulers.Schedulers;
  */
 
 
-public class ColorsViewModel extends AbstractViewModel<IUColorView> {
+public class ColorsViewModel extends AbstractViewModel<IUColorView>   {
     public static final String TAG = "AbstractViewModel";
 
     private Colors mColors;
@@ -66,6 +67,8 @@ public class ColorsViewModel extends AbstractViewModel<IUColorView> {
             view.getColorsData(mColors);
         } else if (mLoadingUsers) {
             view.showloading(mCurrentLoadingProgress);
+            mColors =  mGson.fromJson(SharedPref.getString(ApiUtils.getSharedKey.COLORS), Colors.class);
+            view.getColorsData(mColors);
         } else {
             loadData(view);
         }
@@ -91,6 +94,7 @@ public class ColorsViewModel extends AbstractViewModel<IUColorView> {
 
                     @Override
                     public void onNext(Colors colors) {
+                        SharedPref.setString(ApiUtils.getSharedKey.COLORS, mGson.toJson(mColors));
                         view.getColorsData(colors);
                     }
                 });
