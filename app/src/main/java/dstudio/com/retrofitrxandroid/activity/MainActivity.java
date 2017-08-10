@@ -12,8 +12,12 @@ import java.util.List;
 import butterknife.BindView;
 import dstudio.com.retrofitrxandroid.R;
 import dstudio.com.retrofitrxandroid.adapter.AnswersAdapter;
+import dstudio.com.retrofitrxandroid.apiconnection.connectivity.NoNetworkException;
 import dstudio.com.retrofitrxandroid.callback.PostItemListener;
 import dstudio.com.retrofitrxandroid.model.userdataresponse.UserData;
+import dstudio.com.retrofitrxandroid.apiconnection.RetrofitClient;
+import dstudio.com.retrofitrxandroid.util.ApiUtils;
+import dstudio.com.retrofitrxandroid.util.SharedPrefUtils;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -22,7 +26,7 @@ import rx.schedulers.Schedulers;
  * Created by janwelcris on 7/12/2017.
  */
 
-public class MainActivity extends BaseActivity implements PostItemListener{
+public class MainActivity extends BaseActivity implements PostItemListener, ApiUtils.SharedPrefKey{
     private AnswersAdapter mAdapter;
     private List<UserData> list;
     private String TAG = "MAIN ACTIVITY";
@@ -49,25 +53,44 @@ public class MainActivity extends BaseActivity implements PostItemListener{
     }
 
     private void loadData(){
-        mService.doGetUserData().subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        RetrofitClient.getSOService(this)
+                .doGetUserData()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Subscriber<UserData>() {
                     @Override
-                    public void onCompleted() {
-                        Log.i(TAG, "COMPLETE");
+                    public void onCompleted(){
+                            Log.i(TAG, "COMPLETE");
                     }
 
                     @Override
                     public void onError(Throwable e) {
-                        Log.i(TAG, e.getLocalizedMessage());
-                        Toast.makeText(MainActivity.this,"Error : " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
+                        if (e instanceof NoNetworkException) {
+                            // handle 'no network'
+                            String userDataResponseLocal = SharedPrefUtils.getString(USER_DATA);
+                            if (userDataResponseLocal != null){
+                                UserData userData = mGson.fromJson(userDataResponseLocal, UserData.class);
+                                populateData(userData);
+                                return;
+                            }
+
+                        }
+                        Toast.makeText(MainActivity.this, e.getLocalizedMessage(), Toast.LENGTH_SHORT)
+                                    .show();
+
                     }
 
                     @Override
                     public void onNext(UserData userData) {
-                        list.add(userData);
-                        mAdapter.updateAnswers(list);
+                        SharedPrefUtils.setString(USER_DATA,  mGson.toJson(userData));
+                        populateData(userData);
                     }
                 });
+    }
+
+    private void populateData(UserData userData){
+        list.add(userData);
+        mAdapter.updateAnswers(list);
     }
 
     @Override
