@@ -1,0 +1,14 @@
+{ 
+"username": "DanaPotPlant",
+"files": null,
+"attachments": null,
+"bidperiod": 7,
+"skills": [
+  {"name": "User Interface Design"}, 
+  {"name": "User Experience Design"} ],
+"exams": [ 
+{ "name": "Aussie English G’Day Mate!", "progress": 80 }, 
+{ "name": "SkectApp", "progress": 30 } ], 
+
+"avatar": "www.freelancer.com/img/danaplant.png" 
+}   
