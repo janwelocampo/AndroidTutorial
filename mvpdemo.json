@@ -1,0 +1,14 @@
+{ 
+"username": "bhoxss_juana",
+"fname": "Juana",
+"lname": "Smith",
+"email": "jsmith@email.com",
+"skills": [
+  {"name": "User Interface Design"}, 
+  {"name": "User Experience Design"} ],
+"exams": [ 
+{ "name": "Aussie English G’Day Mate!", "progress": 80 }, 
+{ "name": "SkectApp", "progress": 30 } ], 
+
+"avatar": "https://wallpapersite.com/images/pages/pic_w/7094.jpg" 
+}   
